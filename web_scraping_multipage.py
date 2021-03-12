@@ -1,4 +1,8 @@
 from bs4 import BeautifulSoup
+
+import sqlalchemy
+
+import psycopg2
 import requests
 import pandas as pd
 
@@ -7,6 +11,13 @@ names = []
 locations = []
 reviews = []
 query_string = "?start="
+engine = sqlalchemy.create_engine('postgres://postgres:Femogy@008@10.0.0.66:5432/TestCsv')
+
+# db = psycopg2.connect(user="tester",
+#                                   password="Pa$$w0rd",
+#                                   host="10.0.0.66",
+#                                   port="5432",
+#                                   database="TestCsv")
 
 # Get page object
 page = requests.get("https://www.yelp.com/biz/bar-karaoke-lounge-toronto")
@@ -50,3 +61,4 @@ all_reviews = pd.DataFrame({
 
 # Save to csv
 all_reviews.to_csv('/vagrant_data/reviews.csv', ',')
+all_reviews.to_sql('MyTable2', engine)
