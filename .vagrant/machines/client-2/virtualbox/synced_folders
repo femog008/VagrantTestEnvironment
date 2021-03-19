@@ -1,0 +1,1 @@
+{"virtualbox":{"repository":{"id":"repository","owner":"vagrant","group":"vagrant","guestpath":"/repository","hostpath":"D:/VM/Shared","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"D:/VM/Vagrant","disabled":false,"__vagrantfile":true}}}
